@@ -54,6 +54,7 @@ def rpc(method, params=None, notification=False):
         "Accept": "application/json, text/event-stream",
         "Content-Type": "application/json",
         "MCP-Protocol-Version": PROTOCOL_VERSION,
+        "User-Agent": "curl/8.5.0",
     }
     if SESSION_ID:
         headers["Mcp-Session-Id"] = SESSION_ID
