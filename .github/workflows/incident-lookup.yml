@@ -1,0 +1,19 @@
+name: S02E04 job 1 — incident lookup
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  incident-lookup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out worker
+        uses: actions/checkout@v4
+      - name: Run incident-lookup skill
+        env:
+          JOB_1_MCP_URL: ${{ secrets.JOB_1_MCP_URL }}
+        run: python3 .github/workers/incident_lookup.py
